@@ -13,6 +13,7 @@ var graphqlHTTP = require('express-graphql');
 const { ApolloServer, gql } = require('apollo-server-express');
 var { buildSchema } = require('graphql');
 const exe = require('./schema/extendSchema')
+const authetication = require('./helpers/auth')
 const MONGO_DB = "mongodb://localhost:27017/sampletest"
 mongoose.connect(MONGO_DB,{
   useNewUrlParser: true,
@@ -24,11 +25,25 @@ mongoose.connection.on("connected",()=>{
   console.log("Connected to mongoDB")
 })
 const schema=exe()
-const server = new ApolloServer({schema: schema});
+const server = new ApolloServer({schema: schema
+  ,context:async ({ req }) => {
+  let user = await authetication.isAuthetication(req.headers.authorization);
+  console.log('user value',await authetication.isAuthetication(req.headers.authorization))
+  if (!user) throw new AuthenticationError('you must be logged in');
+  return await {'ok':'tedw'};
+}
+});
+
+const serverWithoutAuth = new ApolloServer({schema: schema});
 
 var app = express();
-const grpahqlPath = '/graphql';
-server.applyMiddleware({ app,grpahqlPath });
+// for no permission or auth
+const grpahqlPath = '/graphql/no_permission';
+serverWithoutAuth.applyMiddleware({ app,grpahqlPath });
+
+//permission or auth routing
+const grpahqlPathPermission = '/graphql';
+server.applyMiddleware({ app,grpahqlPathPermission });
 app.use(cors())
 
 // var app = express();

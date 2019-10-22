@@ -1,0 +1,4 @@
+10:57:09.911 INFO  this is a log statement 
+{"message":"Hello again distributed logs","level":"info"}
+{"message":"Hello again distributed logs","level":"info"}
+{"message":"Hello again distributed logs","level":"info"}
