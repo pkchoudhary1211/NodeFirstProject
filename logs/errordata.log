@@ -3,3 +3,12 @@
 {"level":"error","timestamp":"2019-10-22T07:19:59.344Z"}
 {"level":"error","message":["User Not found",{"email":"1tes21@gmail.com","password":"paswsseord"}],"timestamp":"2019-10-22T07:21:10.670Z"}
 {"level":"error","message":["user Already Exists",{"name":"name","email":"1test121@gmail.com","password":"paswsseord","address":{"pincode":"1231","city":"bangalore"}}],"timestamp":"2019-10-22T07:22:39.386Z"}
+{"level":"error","message":["user Already Exists",{"name":"name","email":"1test121@gmail.com","password":"paswsseord","address":{"pincode":"1231","city":"bangalore"}}],"timestamp":"2019-10-23T05:01:14.359Z"}
+{"level":"error","message":["user Already Exists",{"name":"name","email":"1test121@gmail.com","password":"paswsseord","address":{"pincode":"1231","city":"bangalore"}}],"timestamp":"2019-10-23T05:01:16.456Z"}
+{"level":"error","message":["user Already Exists",{"name":"name","email":"1test121@gmail.com","password":"paswsseord","address":{"pincode":"1231","city":"bangalore"}}],"timestamp":"2019-10-23T05:01:17.737Z"}
+{"level":"error","message":["User Not found",{"email":"1tes21@gmail.com","password":"paswsseord"}],"timestamp":"2019-10-23T05:01:27.753Z"}
+{"level":"error","message":["User Not found",{"email":"tes21@gmail.com","password":"paswsseord"}],"timestamp":"2019-10-23T05:01:39.998Z"}
+{"level":"error","message":["User Not found",{"email":"tes21@gmail.com","password":"paswsseord"}],"timestamp":"2019-10-23T05:01:40.859Z"}
+{"level":"error","message":["User Not found",{"email":"tes21@gmail.com","password":"paswsseord"}],"timestamp":"2019-10-23T05:01:41.724Z"}
+{"level":"error","message":["User Not found",{"email":"tes@gmail.com","password":"paswsseord"}],"timestamp":"2019-10-23T05:01:49.054Z"}
+{"level":"error","message":["User Not found",{"email":"tes@gmail.com","password":"paswsseord"}],"timestamp":"2019-10-23T05:01:50.029Z"}

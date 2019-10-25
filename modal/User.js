@@ -14,7 +14,18 @@ const userSchema = new Schema({
             require:true,
             type:String,
         }
-    }
+    },
+    chat:[{
+       sender:{
+           type:String
+       },
+       message:{
+           type:String
+       },
+       date:{
+           type:String
+       }
+}]
 })
 const User = moongoose.model("users", userSchema)
 module.exports = User;

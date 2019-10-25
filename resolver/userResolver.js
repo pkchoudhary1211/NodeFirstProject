@@ -32,6 +32,15 @@ module.exports.userResolver={
             }
             return {'token':value}
         },
+        async getChat(args, req){
+            try{
+                var data =await User.findOne({'_id':'5da9b8400ffc963afcf22af7'})
+                // console.log('User Data' ,data)
+                return await data
+            }catch(Ex){
+                console.log('error',Ex)
+            }
+        }
     },
     Mutation:{
         async userRegister(args,req){
@@ -61,6 +70,41 @@ module.exports.userResolver={
                 console.log(ex)
             }
             return await {'status':'ok'}
-        }
+        },
+        async chat(args,req){
+            try{
+                console.log("user Request data", req.userChat)
+                let date_ob = new Date();
+                let date = ("0" + date_ob.getDate()).slice(-2);
+                let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+                // current hours
+                let hours = date_ob.getHours();
+                // current minutes
+                let minutes = date_ob.getMinutes();
+                let fullDate=date+"/"+month+"  @"+hours+":"+minutes
+                console.log('date',fullDate);
+                User.updateOne({'_id':'5da9b8400ffc963afcf22af7'},
+                { $push: {'chat':{'sender':req.userChat.sender,'message':req.userChat.message,'date':fullDate ,'id':'123123'}} }, async function(err, res){
+                    if(err){
+                        console.log('new error',err)
+                    }
+                    if(res){
+                        User.findOne({'_id':'5da9b8400ffc963afcf22af7'},
+                        (err,res)=>{
+                            if(err){
+                                console.log('eerrrrorr')
+                            }if(res){
+                                // console.log('so=ize',typeof(res.chat),res.chat.length)
+                            }
+                        })
+                        console.log('perfect code   ')
+                    }
+                })
+                return await {'name':"name user"}
+            }   
+            catch(ex){
+                throw new Error(ex)
+            }
+        },
     }
 }
